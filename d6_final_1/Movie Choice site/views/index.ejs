@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Fixed width for better form appearance */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .movie-list {
+            text-align: center;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px; /* Limiting width for better readability */
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/search" method="post">
+        <input type="text" name="movieName" placeholder="영화 이름을 입력 ex)증인">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="movie-list">
+        <h2>영화 리스트</h2>
+        <p>
+            미션 임파서블3, 스타워즈, 아마겟돈, 강철중, 공공의적, 실미도, 한반도, 친구, 태풍, 방자전, 챔피언, 국가대표, 미스터 고, 신과 함께, 협상, 밀정, 악마를보았다, 좋은놈 나쁜놈 이상한놈, 최종병기 활, 한산, 라라랜드, 나우유씨미, 분노의 질주, 인크레더블 헐크, 밀수, 베테랑, 코리아, 좋.댓.구, 아가씨, 올드보이, 명당, 타겟, 퍼펙트 게임, 에베레스트, 설국열차, 21 브릿지, 괴물, 비룡맹장, 취권, 쿵푸팬더2, 시간의숲, 너의 이름은, 스즈메의문단속, 분신사바, 어벤져스, 캡틴 아메리카, 강철비, 가려진 시간, 콘크리트유토피아, 반도, 부산행, 집으로, 염력, 맘마미아!2, 봉오동전투, 잠, 1번가의 기적, 해운대, 더퍼스트슬램덩크, 극한직업, 스물, 엑시트, 메기, 써니, 타짜:신의손, 왕의남자, 황산벌, 달짝지근해, 완득이, 우아한 거짓말, 백두산, 은밀하게 위대하게, 반창꼬, 증인, 오! 문희, 닌자터틀:뮤턴트대소동, 탑건 매버릭, 귀향, 매드맥스2, 도둑들, 암살, 전우치, 타짜, 신체모음.zip, 아수라, 레디액션! 폭력영화, 시동, 오펜하이머, 토르, 베니스유령살인사건, 굿다이노, 인크레더블2, 투모로우랜드, 엘리멘탈, 미션 임파서블: 고스트 프로토콜, 인질, 관상, 더 킹, 연애의 목적, 우아한 세계, 오늘 밤, 세계에서 이 사랑이 사라진다 해도, 너를 부르는 시간, 헤어질 결심, 여름날 우리, 인민을 위해 복무하라, 씨스피라시, 개와 고양이를 위한 시간, 님아 그 강을 건너지 마오, 워낭소리, 가족, 프레디의 피자가게, 톡투미, 괴담만찬, 물귀신, 더 넌 2, 더 마블스, 더 문, 크리에이터, 월드 인베이젼, 엣지 오브 투모로우, 인어공주, 위대한 쇼맨, 레미제라블, 오페라의 유령, 사운드 오브 뮤직, 잠, 곡성, 겟 아웃, 사바하, 천박사 퇴마 연구소: 설경의 비밀, 이터널스, 닥터 스트레인지: 대혼돈의 멀티버스, 앤트맨과 와스프: 퀀텀매니아, 캡틴 마블, 외계+인 1부, 남한산성, 광해, 왕이 된 남자, 명량, 조선명탐정: 각시투구꽃의 비밀, 뉴 노멀, 어스, 사냥의 시간, 악마들
+        </p>
+        
+        <!-- More movie names here -->
+    </div>
+
+    <footer>
+        <p>© DB건설팀 영화 감독 추천 사이트</p>
+    </footer>
+</body>
+</html>

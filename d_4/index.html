@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후원 감사해요</title>
+</head>
+
+<body>
+    <h1 id="sound"></h1>
+    <input id="name" type="text" onkeyup="handleKeyUp(event)">
+    <button onclick="getsound()">API 요청</button>
+    <script>
+        function getsound() {
+            const name = document.getElementById('name').value;
+            fetchData(name);
+        }
+
+        function handleKeyUp(event) {
+            if (event.key === 'Enter') {
+                getsound();
+            }
+        }
+
+        function fetchData(name) {
+            fetch(`http://localhost:3000/${name}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then((data) => {
+                    console.log(data);
+                    document.getElementById('sound').innerHTML = data;
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>

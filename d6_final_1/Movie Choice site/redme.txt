@@ -1,0 +1,6 @@
+my ip : 117.17.111.10
+
+
+terminal :  lt --port 3000 --subdomain yunjae
+
+-> https://yunjae.loca.lt

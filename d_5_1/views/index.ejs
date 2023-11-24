@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my page</title>
+    <!-- Inline Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            padding: 10px;
+            position: relative;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            font-size: 14px;
+        }
+
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Optional: Add some styling for responsiveness */
+        @media screen and (max-width: 600px) {
+            li {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            input[type="text"],
+            input[type="submit"] {
+                width: 100%;
+                box-sizing: border-box;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>댓글 목록</h1>
+    <ul>
+        <% for (let comment of comments) { %>
+            <li>
+                <strong>ID:</strong>
+                <%= comment.id %>,
+                <strong>Content:</strong>
+                <%= comment.content %>
+
+                <!-- Update form for each comment -->
+                <form action="/update/<%= comment.id %>" method="post">
+                    <input type="text" name="updatedContent" placeholder="Updated Content">
+                    <input type="submit" value="Update">
+                </form>
+
+                <!-- Delete button for each comment -->
+                <form action="/delete/<%= comment.id %>" method="post">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+        <% } %>
+    </ul>
+    <hr>
+
+    <!-- Create form with a nickname field -->
+    <form action="/create" method="post">
+        <input type="text" name="nickname" placeholder="Your Nickname">
+        <input type="text" name="content" placeholder="New Comment">
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

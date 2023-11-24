@@ -1,0 +1,44 @@
+<!-- moveDB.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 감독 추천</title>
+    <style>
+        /* 여기에 CSS 스타일을 추가하세요. */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* 추가적인 스타일링을 진행하세요. */
+    </style>
+</head>
+<body>
+    <h1>영화 감독 추천</h1>
+    <form action="/search" method="post">
+        <label for="movieInput">당신이 재밌게 본 영화는?</label>
+        <input type="text" id="movieInput" name="movieTitle" required>
+        <button type="submit">검색</button>
+    </form>
+
+    <!-- 검색 결과를 여기에 출력하세요. -->
+    <% if (result) { %>
+        <h2>검색 결과</h2>
+        <p>영화제목: <%= result.title %></p>
+        <p>감독이름: <%= result.director %></p>
+        <p>평점: <%= result.rating %></p>
+        <p>태그: <%= result.tags.join(', ') %></p>
+        <p>극장 개봉일: <%= result.releaseDate %></p>
+        <p>감독 이미지 주소: <%= result.directorImage %></p>
+        <p>영화 포스터 이미지 주소: <%= result.posterImage %></p>
+    <% } else if (searched) { %>
+        <p>검색된 영화가 없습니다.</p>
+    <% } %>
+</body>
+</html>

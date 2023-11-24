@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .movie-director-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-director-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .movie-director-details img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-content {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #ddd;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function showSimilarDirectors() {
+            document.getElementById('similarDirectors').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <% if (movie) { %>
+        <div class="movie-director-container">
+            <div class="movie-director-details">
+                <img src="<%= movie.Posteraddress %>" alt="Poster Image">
+                <div class="text-content">
+                    <h1><%= movie.moviename %></h1>
+                    <p>평점: <%= movie.grade %></p>
+                    <p>장르: <%= movie.Tag %></p>
+                    <p>극장 개봉일: <%= movie.Releasedate %></p>
+                </div>
+            </div>
+            <div class="movie-director-details">
+                <img src="<%= movie.DirectorAddress %>" alt="Director's Image">
+                <div class="text-content">
+                    <p>감독: <%= movie.Directoname %></p>
+                </div>
+            </div>
+        </div>
+<h2>비슷한 영화 추천</h2>
+<button class="refresh-button" onclick="refreshPage()">새로고침</button>
+<button class="back-button" onclick="goBack()">돌아가기</button>
+
+<br>
+        <!-- Repeat the structure for similar directors -->
+        <% similarDirectors.forEach(function(director) { %>
+            <div class="movie-director-container">
+                <div class="movie-director-details">
+                    <img src="<%= director.Posteraddress %>" alt="Movie Poster">
+                    <div class="text-content">
+                        <h1><%= director.moviename %></h1>
+                        <p>평점: <%= director.grade %></p>
+                        <p>장르: <%= director.Tag %></p>
+                        <p>극장 개봉일: <%= director.Releasedate %></p>
+                    </div>
+                </div>
+                <div class="movie-director-details">
+                    <img src="<%= director.DirectorAddress %>" alt="Director's Image">
+                    <div class="text-content">
+                        <p>감독: <%= director.Directoname %></p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+
+            function refreshPage() {
+                location.reload();
+            }
+        </script>
+    <% } else { %>
+        <p>Movie not found.</p>
+    <% } %>
+</body>
+</html>

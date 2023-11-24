@@ -1,0 +1,14 @@
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,11
+[InternetShortcut]
+IDList=
+
+
+<초기>
+powerShell  > get-ExecutionPolicy > 
+Set-ExecutionPolicy RemoteSigned > y
+
+
+
+lt --port 3000 --subdomain yunjae >  URL=https://yunjae.loca.lt/
+
